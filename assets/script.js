@@ -61,4 +61,25 @@ async function loadGuideCards() {
 
 if (window.location.pathname.endsWith('guides.html')) {
   window.addEventListener('DOMContentLoaded', loadGuideCards);
+}
+
+function injectSocialFab() {
+  // Remove if already present (avoid duplicates)
+  const existing = document.querySelector('.social-fab');
+  if (existing) existing.remove();
+
+  const fab = document.createElement('div');
+  fab.className = 'social-fab';
+  fab.innerHTML = `
+    <a href="https://www.instagram.com/biz_library?igsh=MWp5MWlwa3pkM2lqaA==" target="_blank" aria-label="Instagram" rel="noopener">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="https://chat.whatsapp.com/FW5Bv2DvZztGZsSurils0j" target="_blank" aria-label="WhatsApp" rel="noopener">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="https://x.com/biz_lib?t=YIsgrJlzdjw1TNBnFTz5oQ&s=09" target="_blank" aria-label="X (Twitter)" rel="noopener">
+      <i class="fa-brands fa-x-twitter"></i>
+    </a>
+  `;
+  document.body.appendChild(fab);
 } 
